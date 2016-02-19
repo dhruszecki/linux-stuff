@@ -1,0 +1,50 @@
+sudo –i
+ 
+
+Next, run the commands below to create connection to the X server as lightdm
+
+xhost +SI:localuser:lightdm
+ 
+
+
+
+ 
+
+Then run the command below to assume and run scripts as lightdm.
+
+su lightdm -s /bin/bash
+ 
+
+
+
+ 
+
+Next, run the commands below to disable dynamic background switching.
+
+gsettings set com.canonical.unity-greeter draw-user-backgrounds 'false'
+ 
+
+
+
+ 
+
+Finally, run the commands below to add the image your wish to show up on the login screen. You must replace the path-to-image with the correct path to the image stored on your computer.
+
+gsettings set com.canonical.unity-greeter background '/path-to-image.png'
+ 
+
+
+
+ 
+
+Restart / Login  and enjoy!
+
+ 
+
+
+
+ 
+
+To remove the dotted-lines added by Ubuntu, run the commands below.
+
+gsettings set com.canonical.unity-greeter draw-grid 'false'

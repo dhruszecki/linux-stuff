@@ -1,0 +1,8 @@
+startup_message off
+
+# create windows
+screen -t prod.rex.exchanged sshpass -p 'log01prod' ssh -t logger@10.1.1.96 'cd /data/public/log/logRex; tail -f log | grep RESERVATION_EXCHANGED --color'
+screen -t prod.rex.not.exchanged sshpass -p 'log01prod' ssh -t logger@10.1.1.96 'cd /data/public/log/logRex; tail -f log | grep RESERVATION_NOT_EXCHANGED --color'
+screen -t prod.rex.error sshpass -p 'log01prod' ssh -t logger@10.1.1.96 'cd /data/public/log/logRex; tail -f log | grep ERROR --color'
+screen -t prod.rex.connector.error sshpass -p 'log01prod' ssh -t logger@10.1.1.96 'cd /data/public/log/logRexConnector;  tail -f log | grep  ERROR --color'
+screen -t prod sshpass -p 'log01prod' ssh -t logger@10.1.1.96 'cd /data/public/log/logRex'
